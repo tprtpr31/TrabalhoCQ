@@ -1,0 +1,40 @@
+---
+title: "Trabalho Controle de Qualidade"
+output: html_document
+---
+
+site de referencia
+https://rpubs.com/adelmofilho/post4#:~:text=Gr%C3%A1ficos%20X%2Dbarra%20e%20R,-Para%20a%20constru%C3%A7%C3%A3o&text=A%20constru%C3%A7%C3%A3o%20de%20todos%20gr%C3%A1ficos,exemplo%2C%20com%20o%20seguinte%20c%C3%B3digo.
+
+```{r}
+install.packages("qcc")
+library(qcc)
+```
+
+
+```{r}
+dados <- read.csv("Grupo 5.csv",header = T, dec = ",", sep = ";")
+dados2 <- read.csv("Grupo 5  -  2.csv",header = T, dec = ",", sep = ";")
+dados
+dados2
+```
+
+#Gráficos de Controle
+```{r}
+plot.xbar = qcc(dados2, type="xbar")
+plot.R = qcc(dados2, type="R")
+```
+
+
+#Análise de Capacidade 
+```{r}
+process.capability(object = plot.xbar,
+                   spec.limits=c(6,9))
+```
+
+
+#Avaliação do Sistema de Medição
+```{r}
+
+```
+
