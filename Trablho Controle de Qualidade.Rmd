@@ -35,6 +35,12 @@ process.capability(object = plot.xbar,
 
 #Avaliação do Sistema de Medição
 ```{r}
+r=(dados2$Mesure.1-dados2$Mesure.2)
 
+rb=c(mean(r[1:5]),mean(r[6:10]),mean(r[11:15]))
+sigrepe=mean(rb)/1.128
+xbb=c(mean(dados$Response[1:10]),mean(dados$Response[11:20]),mean(dados$Response[21:30]))
+rxbb=range(xbb)[2]-range(xbb)[1]
+sigrepro=sqrt((rxbb/1.693)**2-(sigrepe**2)/(5*2))
 ```
 
